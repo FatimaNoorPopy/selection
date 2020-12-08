@@ -13,43 +13,43 @@
     <div class="wrapper" onsubmit="return validation()">
         <h2 class="text">Fuska
             <label id="toggle" class="switch">
-                <input type="checkbox">
+                <input class="checkbox-item" type="checkbox">
                 <span class="slider round"></span>
             </label>
         </h2>
         <h2 class="text">Pizza
             <label id="toggle" class="switch">
-                <input type="checkbox">
+                <input class="checkbox-item" type="checkbox">
                 <span class="slider round"></span>
             </label>
         </h2>
         <h2 class="text">Fried
             <label id="toggle" class="switch">
-                <input type="checkbox">
+                <input class="checkbox-item" type="checkbox">
                 <span class="slider round"></span>
             </label>
         </h2>
         <h2 class="text">Meate
             <label id="toggle" class="switch">
-                <input type="checkbox">
+                <input class="checkbox-item" type="checkbox">
                 <span class="slider round"></span>
             </label>
         </h2>
         <h2 class="text">Parata
             <label id="toggle" class="switch">
-                <input type="checkbox">
+                <input class="checkbox-item" type="checkbox">
                 <span class="slider round"></span>
             </label>
         </h2>
         <h2 class="text">Bread
             <label id="toggle" class="switch">
-                <input type="checkbox">
+                <input class="checkbox-item" type="checkbox">
                 <span class="slider round"></span>
             </label>
         </h2>
         <h2 class="text">Fuska
             <label id="toggle" class="switch">
-                <input type="checkbox">
+                <input class="checkbox-item" type="checkbox">
                 <span class="slider round"></span>
             </label>
 
@@ -61,9 +61,29 @@
 
 
     <script>
-        function validation() {
-            alert("working");
-        }
+
+        document.querySelector('.btn').addEventListener('click', function (e) {
+            // select all checkbox item
+            var checkboxes = document.querySelectorAll('.checkbox-item');
+
+            // check items
+            var checkedItem = []
+
+            checkboxes.forEach(e => {
+                if (e.checked) {
+                    checkedItem.push(e.parentElement.parentNode.firstChild.textContent.trim())
+                }
+            })
+
+            if (checkedItem.length < 3) {
+                alert(`You should Select ${3 - checkedItem.length} more item`)
+            } else {
+                console.log(`selected item`, checkedItem);
+                alert(`Done Successfully`)
+            }
+
+        })
+
     </script>
 
 </body>
